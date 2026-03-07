@@ -1,0 +1,53 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: r-switch-portal-frontend
+  namespace: bscao
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: r-switch-portal-frontend
+  template:
+    metadata:
+      labels:
+        app: r-switch-portal-frontend
+    spec:
+      containers:
+        - name: r-switch-portal-frontend
+          image: your-registry/r-switch-frontend:latest
+          ports:
+            - containerPort: 80
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: r-switch-portal-frontend
+  namespace: bscao
+spec:
+  selector:
+    app: r-switch-portal-frontend
+  ports:
+    - port: 80
+      targetPort: 80
+---
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: r-switch-portal-frontend
+  namespace: bscao
+  annotations:
+    kubernetes.io/ingress.class: traefik
+spec:
+  rules:
+    - host: portal.mojaloop.xyz
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: r-switch-portal-frontend
+                port:
+                  number: 80

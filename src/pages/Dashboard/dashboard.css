@@ -1,0 +1,186 @@
+.page-title {
+  font-size: 19px;
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+.page-subtitle {
+  font-size: 13px;
+  color: var(--text-muted);
+  margin-top: -3px;
+}
+
+.page-content {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.grid-2 {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 18px;
+}
+
+.stat-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
+  gap: 16px;
+}
+
+.stat-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 2px;
+  padding: 18px;
+  transition: 0.5s ease;
+}
+
+.stat-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+}
+
+.stat-label {
+  font-size: 11px;
+  color: var(--text-muted);
+  font-family: var(--font-mono);
+  margin-bottom: 8px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.stat-value {
+  font-size: 22px;
+  font-weight: 700;
+  font-family: var(--font-mono);
+}
+
+.stat-meta {
+  font-size: 11px;
+  color: var(--text-muted);
+  margin-top: 6px;
+}
+
+/* Color Variants */
+
+.stat-card.blue .stat-value {
+  color: #3b82f6;
+}
+.stat-card.green .stat-value {
+  color: #10b981;
+}
+.stat-card.red .stat-value {
+  color: #ef4444;
+}
+.stat-card.yellow .stat-value {
+  color: #f59e0b;
+}
+.stat-card.purple .stat-value {
+  color: #8b5cf6;
+}
+
+.card {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  padding: 16px;
+  transition: all 0.25s ease;
+}
+
+.card:hover {
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.06);
+}
+
+.card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 14px;
+}
+
+.card-title {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+.btn {
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-family: var(--font-mono);
+  transition: 0.2s ease;
+}
+
+.btn-secondary {
+  background: var(--border);
+  color: var(--text-primary);
+}
+
+.btn-secondary:hover {
+  background: var(--accent);
+  color: white;
+}
+
+/* ================================
+   EMPTY STATE
+================================ */
+
+.empty-state {
+  text-align: center;
+  color: var(--text-muted);
+}
+
+.empty-desc {
+  font-size: 12px;
+  font-family: var(--font-mono);
+}
+
+/* ================================
+   BADGES
+================================ */
+
+.badge {
+  font-size: 9px;
+  padding: 3px 6px;
+  border-radius: 4px;
+  font-weight: 600;
+  text-transform: uppercase;
+  font-family: var(--font-mono);
+}
+
+/* Status Colors */
+
+.badge.COMMITTED {
+  background: rgba(16, 185, 129, 0.15);
+  color: #10b981;
+}
+
+.badge.FAILED {
+  background: rgba(239, 68, 68, 0.15);
+  color: #ef4444;
+}
+
+.badge.TIMEOUT {
+  background: rgba(245, 158, 11, 0.15);
+  color: #f59e0b;
+}
+
+/* ================================
+   SCROLL FIX FOR CHARTS
+================================ */
+
+.recharts-wrapper {
+  font-family: var(--font-mono);
+}
+
+/* ================================
+   RESPONSIVE
+================================ */
+
+@media (max-width: 1024px) {
+  .grid-2 {
+    grid-template-columns: 1fr;
+  }
+}

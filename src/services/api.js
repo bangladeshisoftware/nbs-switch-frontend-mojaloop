@@ -1,0 +1,91 @@
+import axios from 'axios';
+
+const api = axios.create({
+  baseURL:
+    process.env.REACT_APP_API_URL ||
+    'https://nb-switch-serverz.mojaloop.xyz/api/v1', //'http://localhost:4000/api/v1',
+  timeout: 15000,
+});
+
+api.interceptors.request.use((config) => {
+  const token = localStorage.getItem('token');
+  if (token) config.headers.Authorization = `Bearer ${token}`;
+  return config;
+});
+
+api.interceptors.response.use(
+  (res) => res,
+  (err) => {
+    if (err.response?.status === 401) {
+      localStorage.removeItem('token');
+      localStorage.removeItem('user');
+      // window.location.href = '/login';
+    }
+    return Promise.reject(err);
+  },
+);
+
+// ── AUTH ──────────────────────────────────────────
+export const login = (u, p) =>
+  api.post('/auth/login', { username: u, password: p });
+export const VerifyOTP = (u, o) =>
+  api.post('/auth/verify-otp', { username: u, otp: o });
+
+export const getUsers = () => api.get('/auth/users');
+export const createUser = (d) => api.post('/auth/users', d);
+export const updateUser = (id, d) => api.put(`/auth/users/${id}`, d);
+
+// ── DASHBOARD ─────────────────────────────────────
+export const getDashboardSummary = (p) =>
+  api.get('/dashboard/summary', { params: p });
+
+// ── TRANSFERS ─────────────────────────────────────
+export const getTransfers = (p) => api.get('/transfers', { params: p });
+export const getTransferById = (id) => api.get(`/transfers/${id}`);
+export const getTransferStats = (p) =>
+  api.get('/transfers/stats', { params: p });
+
+// ── RECONCILIATION ────────────────────────────────
+export const getReconciliation = (p) =>
+  api.get('/reconciliation', { params: p });
+export const runReconciliation = (d) => api.post('/reconciliation/run', d);
+export const getReconciliationReport = (p) =>
+  api.get('/reconciliation/report', { params: p });
+
+// ── DFSP ──────────────────────────────────────────
+export const getDfsps = () => api.get('/dfsps');
+export const getDfspById = (id) => api.get(`/dfsps/${id}`);
+export const createDfsp = (d) => api.post('/dfsps', d);
+export const updateDfsp = (id, d) => api.put(`/dfsps/${id}`, d);
+
+// ── PISP ──────────────────────────────────────────
+export const getPisps = () => api.get('/pisps');
+export const getPispById = (id) => api.get(`/pisps/${id}`);
+export const createPisp = (d) => api.post('/pisps', d);
+export const updatePisp = (id, d) => api.put(`/pisps/${id}`, d);
+export const deletePisp = (id) => api.delete(`/pisps/${id}`);
+export const getPispEndpoints = (id) => api.get(`/pisps/${id}/endpoints`);
+export const registerPispEndpoints = (id, d) =>
+  api.post(`/pisps/${id}/endpoints`, d);
+
+// ── SETTLEMENT ────────────────────────────────────
+export const getSettlementWindows = () => api.get('/settlement/windows');
+export const getSettlementPositions = (p) =>
+  api.get('/settlement/positions', { params: p });
+export const openSettlementWindow = () => api.post('/settlement/windows');
+export const closeSettlementWindow = (id) => {
+  // api.put(`/settlement/windows/${id}/close`);
+  api.post(`/settlement/complete`, { window_id: id });
+};
+
+// ── DFSP POSITIONS (Liquidity) ────────────────────
+export const getDfspPositions = (p) => api.get('/positions', { params: p });
+export const getPositionChanges = (p) =>
+  api.get('/positions/changes', { params: p });
+export const getDfspLimits = (p) => api.get('/positions/limits', { params: p });
+export const setDfspLimit = (d) => api.post('/positions/limits', d);
+
+// ── NOTIFICATIONS ─────────────────────────────────
+export const getNotifications = (p) => api.get('/notifications', { params: p });
+
+export default api;
