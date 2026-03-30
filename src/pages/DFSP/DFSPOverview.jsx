@@ -67,7 +67,6 @@ export default function DFSPOverview() {
     load();
   }, [load]);
 
-  // Pre-fill forms when data loads
   useEffect(() => {
     if (dfsp) {
       setDepositForm((f) => ({ ...f, currency: dfsp.currency || '' }));
@@ -78,7 +77,6 @@ export default function DFSPOverview() {
     }
   }, [dfsp, accounts]);
 
-  // ── Deposit submit ───────────────────────────────────────
   const handleDeposit = async (e) => {
     e.preventDefault();
     setSaving(true);
@@ -99,7 +97,6 @@ export default function DFSPOverview() {
     }
   };
 
-  // ── Limit submit ─────────────────────────────────────────
   const handleSetLimit = async (e) => {
     e.preventDefault();
     setSaving(true);

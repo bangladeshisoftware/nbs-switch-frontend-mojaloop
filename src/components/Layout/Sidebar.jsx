@@ -1,6 +1,7 @@
 import { NavLink, useNavigate } from 'react-router-dom';
 import { useAuth } from '../../context/AuthContext';
 import './sidebar.css';
+import { FaMoneyCheck } from 'react-icons/fa';
 
 const NAV = [
   {
@@ -20,6 +21,7 @@ const NAV = [
     items: [
       { to: '/reconciliation', label: 'Reconciliation', icon: <BalanceIcon /> },
       { to: '/settlement', label: 'Settlement', icon: <VaultIcon /> },
+      { to: '/liquidity', label: 'Liquidity', icon: <FaMoneyCheck /> },
       { to: '/reports', label: 'Reports', icon: <ReportIcon /> },
     ],
   },

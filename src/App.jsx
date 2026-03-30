@@ -18,6 +18,7 @@ import './index.css';
 import VerifyOTP from './pages/Auth/VerifyOTP';
 import Reports from './pages/Reports/Reports';
 import ActivityLogs from './pages/ActivityLogs/ActivityLogs';
+import LiquidityDashboard from './pages/Liquidity/LiquidityDashboard';
 
 function ProtectedLayout({ children }) {
   const { user } = useAuth();
@@ -85,6 +86,14 @@ function AppRoutes() {
         element={
           <ProtectedLayout>
             <Positions />
+          </ProtectedLayout>
+        }
+      />
+      <Route
+        path='/liquidity'
+        element={
+          <ProtectedLayout>
+            <LiquidityDashboard />
           </ProtectedLayout>
         }
       />
