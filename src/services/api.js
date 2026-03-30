@@ -84,6 +84,7 @@ export const getPositionChanges = (p) =>
   api.get('/positions/changes', { params: p });
 export const getDfspLimits = (p) => api.get('/positions/limits', { params: p });
 export const setDfspLimit = (d) => api.post('/positions/limits', d);
+export const updateDfspLimit = (d) => api.put('/positions/update-limits', d);
 
 // ── NOTIFICATIONS ─────────────────────────────────
 export const getNotifications = (p) => api.get('/notifications', { params: p });

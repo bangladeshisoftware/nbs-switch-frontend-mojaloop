@@ -27,7 +27,6 @@ const NAV = [
     section: 'Admin',
     items: [
       { to: '/dfsps', label: 'DFSP Management', icon: <BuildingIcon /> },
-      { to: '/pisps', label: 'PISP Management', icon: <PispIcon /> },
       { to: '/activity-logs', label: 'Activity Logs', icon: <ActivityIcon /> },
       { to: '/users', label: 'Users', icon: <UsersIcon /> },
     ],
