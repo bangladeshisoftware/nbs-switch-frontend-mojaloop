@@ -1,7 +1,14 @@
 import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { getDfsps, createDfsp, updateDfsp } from '../../services/api';
+import {
+  getDfsps,
+  createDfsp,
+  updateDfsp,
+  getDFSPToken,
+} from '../../services/api';
 import { fmt } from '../../utils/format';
+import { LogIn } from 'lucide-react';
+import { ImSpinner4 } from 'react-icons/im';
 
 const EMPTY_FORM = {
   dfsp_id: '',
@@ -97,7 +104,27 @@ export default function DFSPManagement() {
       admin_username: prev.admin_username || val.toLowerCase() + '_admin',
     }));
   };
-
+  const [authLoading, setAuthLoading] = useState('');
+  // a function: /auth/login-dfsp
+  const handleLogin = async (dfsp_id) => {
+    if (!dfsp_id) return alert('DFSP id is Required!');
+    setAuthLoading(dfsp_id);
+    try {
+      const res = await getDFSPToken({ dfsp_id: dfsp_id });
+      const url = null;
+      // redirect.
+      console.log(res?.data?.token, 'res is');
+      window.open(
+        `https://dfsp.mojaloop.xyz/login/${res?.data?.token}`,
+        '_blank',
+        'noopener,noreferrer',
+      );
+    } catch (err) {
+      alert('Error: ' + (err.response?.data?.error || err.message));
+    } finally {
+      setAuthLoading('');
+    }
+  };
   return (
     <div>
       <div className='page-header'>
@@ -212,6 +239,25 @@ export default function DFSPManagement() {
                           onClick={() => openEdit(d)}
                         >
                           Edit
+                        </button>
+                        <button
+                          title='Login DFSP Portal Account'
+                          disabled={authLoading ? true : false}
+                          className='btn btn-secondary'
+                          style={{ padding: '4px 10px', fontSize: 10 }}
+                          onClick={() => handleLogin(d?.dfsp_id)}
+                        >
+                          {authLoading == d?.dfsp_id ? (
+                            <>
+                              {' '}
+                              <ImSpinner4 className='animate-spin' /> Please
+                              waite...
+                            </>
+                          ) : (
+                            <>
+                              Login <LogIn />
+                            </>
+                          )}
                         </button>
                       </div>
                     </td>

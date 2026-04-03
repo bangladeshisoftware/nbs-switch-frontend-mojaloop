@@ -19,6 +19,12 @@ import VerifyOTP from './pages/Auth/VerifyOTP';
 import Reports from './pages/Reports/Reports';
 import ActivityLogs from './pages/ActivityLogs/ActivityLogs';
 import LiquidityDashboard from './pages/Liquidity/LiquidityDashboard';
+import HubAccounts from './pages/Hub/HubAccounts';
+import SettlementModels from './pages/Hub/SettlementModels';
+import Oracles from './pages/Hub/Oracles';
+import SettlementFinalize from './pages/Settlement/SettlementFinalize';
+import SettlementFinalizeRecords from './pages/Settlement/SettlementFinalizeRecords';
+import SettlementCompletedRecords from './pages/Settlement/SettlementCompletedRecords';
 
 function ProtectedLayout({ children }) {
   const { user } = useAuth();
@@ -97,7 +103,39 @@ function AppRoutes() {
           </ProtectedLayout>
         }
       />
-
+      {/* Hub */}
+      <Route
+        path='/hub/accounts'
+        element={
+          <ProtectedLayout>
+            <HubAccounts />
+          </ProtectedLayout>
+        }
+      />
+      <Route
+        path='/hub/settlement-models'
+        element={
+          <ProtectedLayout>
+            <SettlementModels />
+          </ProtectedLayout>
+        }
+      />
+      <Route
+        path='/hub/settlement-finalize'
+        element={
+          <ProtectedLayout>
+            <SettlementFinalize />
+          </ProtectedLayout>
+        }
+      />
+      <Route
+        path='/hub/oracles'
+        element={
+          <ProtectedLayout>
+            <Oracles />
+          </ProtectedLayout>
+        }
+      />
       {/* Finance */}
       <Route
         path='/reconciliation'
@@ -112,6 +150,22 @@ function AppRoutes() {
         element={
           <ProtectedLayout>
             <Settlement />
+          </ProtectedLayout>
+        }
+      />
+      <Route
+        path='/settlement-finalize-records'
+        element={
+          <ProtectedLayout>
+            <SettlementFinalizeRecords />
+          </ProtectedLayout>
+        }
+      />
+      <Route
+        path='/settlement-complete-records'
+        element={
+          <ProtectedLayout>
+            <SettlementCompletedRecords />
           </ProtectedLayout>
         }
       />

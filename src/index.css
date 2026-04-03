@@ -83,7 +83,15 @@ select,
 textarea {
   font-family: var(--font-ui);
 }
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
 
+.animate-spin {
+  animation: spin 1s linear infinite;
+}
 /* ── LAYOUT ─────────────────────────────────────── */
 .app-layout {
   display: flex;

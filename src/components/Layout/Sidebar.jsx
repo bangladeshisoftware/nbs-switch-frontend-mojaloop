@@ -2,6 +2,10 @@ import { NavLink, useNavigate } from 'react-router-dom';
 import { useAuth } from '../../context/AuthContext';
 import './sidebar.css';
 import { FaMoneyCheck } from 'react-icons/fa';
+import { MdHub, MdWidthNormal } from 'react-icons/md';
+import { GrOracle } from 'react-icons/gr';
+import { HistoryIcon } from 'lucide-react';
+import { GiPayMoney } from 'react-icons/gi';
 
 const NAV = [
   {
@@ -14,15 +18,47 @@ const NAV = [
   },
   {
     section: 'Liquidity',
-    items: [{ to: '/positions', label: 'DFSP Positions', icon: <ChartIcon /> }],
+    items: [
+      { to: '/liquidity', label: 'Liquidity', icon: <FaMoneyCheck /> },
+      {
+        to: '/positions',
+        label: 'Positions History',
+        icon: <ChartIcon />,
+      },
+    ],
   },
   {
     section: 'Finance',
     items: [
       { to: '/reconciliation', label: 'Reconciliation', icon: <BalanceIcon /> },
       { to: '/settlement', label: 'Settlement', icon: <VaultIcon /> },
-      { to: '/liquidity', label: 'Liquidity', icon: <FaMoneyCheck /> },
+      {
+        to: '/settlement-finalize-records',
+        label: 'Finalize Records',
+        icon: <GiPayMoney />,
+      },
+      {
+        to: '/settlement-complete-records',
+        label: 'Settlement History',
+        icon: <HistoryIcon />,
+      },
       { to: '/reports', label: 'Reports', icon: <ReportIcon /> },
+    ],
+  },
+  {
+    section: 'Hub configuration',
+    items: [
+      { to: '/hub/accounts', label: 'Hub Accounts', icon: <MdHub /> },
+      {
+        to: '/hub/settlement-models',
+        label: 'Settlement Models',
+        icon: <MdWidthNormal />,
+      },
+      {
+        to: '/hub/oracles',
+        label: 'Oracle Config',
+        icon: <GrOracle />,
+      },
     ],
   },
   {

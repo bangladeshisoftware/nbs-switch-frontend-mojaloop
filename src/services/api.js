@@ -31,6 +31,8 @@ export const login = (u, p) =>
 export const VerifyOTP = (u, o) =>
   api.post('/auth/verify-otp', { username: u, otp: o });
 
+export const getDFSPToken = (d) => api.post('/auth/login-dfsp', d);
+
 export const getUsers = () => api.get('/auth/users');
 export const createUser = (d) => api.post('/auth/users', d);
 export const updateUser = (id, d) => api.put(`/auth/users/${id}`, d);
@@ -73,10 +75,21 @@ export const getSettlementWindows = () => api.get('/settlement/windows');
 export const getSettlementPositions = (p) =>
   api.get('/settlement/positions', { params: p });
 export const openSettlementWindow = () => api.post('/settlement/windows');
+// export const closeSettlementWindow = (id) => {
+//   // api.put(`/settlement/windows/${id}/close`);
+//   api.post(`/settlement/complete`, { window_id: id });
+// };
 export const closeSettlementWindow = (id) => {
-  // api.put(`/settlement/windows/${id}/close`);
-  api.post(`/settlement/complete`, { window_id: id });
+  return api.post(
+    `/settlement/complete`,
+    { window_id: id },
+    {
+      timeout: 120000, // 2 minutes — settlement takes 6 steps + delays
+    },
+  );
 };
+export const finalizeSettlement = (id, d) =>
+  api.post(`/settlement/${id}/finalize`, d);
 
 // ── DFSP POSITIONS (Liquidity) ────────────────────
 export const getDfspPositions = (p) => api.get('/positions', { params: p });
@@ -88,5 +101,15 @@ export const updateDfspLimit = (d) => api.put('/positions/update-limits', d);
 
 // ── NOTIFICATIONS ─────────────────────────────────
 export const getNotifications = (p) => api.get('/notifications', { params: p });
+
+// ── HUB ───────────────────────────────────────────
+export const getHubAccounts = () => api.get('/hub/accounts');
+export const createHubAccount = (d) => api.post('/hub/accounts', d);
+export const getSettlementModels = () => api.get('/hub/settlement-models');
+export const createSettlementModel = (d) =>
+  api.post('/hub/settlement-models', d);
+export const getOracles = () => api.get('/hub/oracles');
+export const createOracle = (d) => api.post('/hub/oracles', d);
+export const deleteOracle = (id) => api.delete(`/hub/oracles/${id}`);
 
 export default api;
