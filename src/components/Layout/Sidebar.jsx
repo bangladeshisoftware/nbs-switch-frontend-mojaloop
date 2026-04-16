@@ -6,6 +6,7 @@ import { MdHub, MdWidthNormal } from 'react-icons/md';
 import { GrOracle } from 'react-icons/gr';
 import { HistoryIcon } from 'lucide-react';
 import { GiPayMoney } from 'react-icons/gi';
+import { TbBuildingBank } from 'react-icons/tb';
 
 const NAV = [
   {
@@ -42,6 +43,12 @@ const NAV = [
         label: 'Settlement History',
         icon: <HistoryIcon />,
       },
+      {
+        to: '/deposits-records',
+        label: 'Deposits History',
+        icon: <TbBuildingBank />,
+      },
+
       { to: '/reports', label: 'Reports', icon: <ReportIcon /> },
     ],
   },

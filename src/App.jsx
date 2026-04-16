@@ -25,6 +25,7 @@ import Oracles from './pages/Hub/Oracles';
 import SettlementFinalize from './pages/Settlement/SettlementFinalize';
 import SettlementFinalizeRecords from './pages/Settlement/SettlementFinalizeRecords';
 import SettlementCompletedRecords from './pages/Settlement/SettlementCompletedRecords';
+import DepositsRecords from './pages/Deposits/DepositsRecords';
 
 function ProtectedLayout({ children }) {
   const { user } = useAuth();
@@ -166,6 +167,14 @@ function AppRoutes() {
         element={
           <ProtectedLayout>
             <SettlementCompletedRecords />
+          </ProtectedLayout>
+        }
+      />
+      <Route
+        path='/deposits-records'
+        element={
+          <ProtectedLayout>
+            <DepositsRecords />
           </ProtectedLayout>
         }
       />
