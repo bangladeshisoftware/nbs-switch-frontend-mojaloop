@@ -43,11 +43,11 @@ export default function Reconciliation() {
     try {
       const res = await runReconciliation({});
       alert(
-        `✅ Reconciliation done! ${res.data.transfers_processed} transfers processed.`,
+        `Reconciliation done! ${res.data.transfers_processed} transfers processed.`,
       );
       load();
     } catch (err) {
-      alert('❌ Error: ' + (err.response?.data?.error || err.message));
+      alert(' Error: ' + (err.response?.data?.error || err.message));
     } finally {
       setRunning(false);
     }
@@ -76,7 +76,7 @@ export default function Reconciliation() {
                 Running...
               </>
             ) : (
-              '▶ Run Reconciliation'
+              ' Run Reconciliation'
             )}
           </button>
         </div>

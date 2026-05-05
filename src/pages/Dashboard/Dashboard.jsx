@@ -108,7 +108,7 @@ export default function Dashboard() {
       </div>
 
       <div className='page-content'>
-        {/* ── Transfer Stats ── */}
+        {/* Transfer Stats */}
         <div className='stat-grid'>
           <div className='stat-card blue'>
             <div className='stat-label'>Total Transfers</div>
@@ -145,7 +145,7 @@ export default function Dashboard() {
           </div>
         </div>
 
-        {/* ── Charts Row ── */}
+        {/* Charts Row */}
         <div className='grid-2' style={{ marginBottom: 16 }}>
           <div className='card'>
             <div className='card-header'>
@@ -278,7 +278,7 @@ export default function Dashboard() {
           </div>
         </div>
 
-        {/* ── DFSP Positions + Volume ── */}
+        {/* DFSP Positions + Volume */}
         <div className='grid-2' style={{ marginBottom: 16 }}>
           <div className='card'>
             <div className='card-header'>
@@ -403,7 +403,7 @@ export default function Dashboard() {
           </div>
         </div>
 
-        {/* ── Recent Notifications + Top DFSPs ── */}
+        {/* Recent Notifications + Top DFSPS */}
         <div className='grid-2'>
           <div className='card'>
             <div className='card-header'>

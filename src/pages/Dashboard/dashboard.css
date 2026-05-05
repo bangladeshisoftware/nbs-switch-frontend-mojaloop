@@ -123,9 +123,7 @@
   color: white;
 }
 
-/* ================================
-   EMPTY STATE
-================================ */
+/* EMPTY STATE */
 
 .empty-state {
   text-align: center;
@@ -137,9 +135,7 @@
   font-family: var(--font-mono);
 }
 
-/* ================================
-   BADGES
-================================ */
+/* BADGES */
 
 .badge {
   font-size: 9px;
@@ -167,17 +163,13 @@
   color: #f59e0b;
 }
 
-/* ================================
-   SCROLL FIX FOR CHARTS
-================================ */
+/* SCROLL FIX FOR CHARTS */
 
 .recharts-wrapper {
   font-family: var(--font-mono);
 }
 
-/* ================================
-   RESPONSIVE
-================================ */
+/* RESPONSIVE */
 
 @media (max-width: 1024px) {
   .grid-2 {

@@ -74,7 +74,7 @@ export default function SettlementFinalizeRecords() {
       </div>
 
       <div style={{ padding: 28 }}>
-        {/* ── Filters ── */}
+        {/* Filters */}
         <div
           style={{
             display: 'grid',
@@ -157,7 +157,7 @@ export default function SettlementFinalizeRecords() {
           </div>
         </div>
 
-        {/* ── Summary ── */}
+        {/*  Summary */}
         <div
           style={{
             display: 'grid',
@@ -210,7 +210,7 @@ export default function SettlementFinalizeRecords() {
         </div>
       </div>
 
-      {/* ── Table ── */}
+      {/* Table */}
       <div className='page-content'>
         <div className='table-wrap'>
           <table>

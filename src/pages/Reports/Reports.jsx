@@ -128,7 +128,7 @@ export default function Reports() {
               onClick={handleGenerate}
               disabled={loading}
             >
-              ↺ Refresh
+              Refresh
             </button>
             <button
               className='btn btn-primary'
@@ -346,7 +346,7 @@ export default function Reports() {
           </div>
         )}
 
-        {/* ── Data Table ── */}
+        {/* Data Table */}
         {generated && data && (
           <div className='card'>
             <div className='card-header'>

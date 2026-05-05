@@ -111,7 +111,7 @@ export default function DepositsRecords() {
         </div>
       </div>
 
-      {/* ── Full table ── */}
+      {/*  Full table  */}
       <div className='page-content'>
         <div className='table-wrap'>
           <table>

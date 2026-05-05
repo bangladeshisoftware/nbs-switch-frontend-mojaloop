@@ -28,7 +28,7 @@ export default function SettlementFinalize({ settlementId, onDone }) {
 
   return (
     <>
-      {/* ── Trigger button ── */}
+      {/* Trigger button */}
       <button
         className="btn btn-primary"
         onClick={() => { setModal(true); setResult(null); }}
@@ -37,7 +37,7 @@ export default function SettlementFinalize({ settlementId, onDone }) {
         ✓ Confirm Physical Transfer
       </button>
 
-      {/* ── Confirm Modal ── */}
+      {/* Confirm Modal */}
       {modal && (
         <div className="modal-overlay" onClick={() => !loading && setModal(false)}>
           <div className="modal" onClick={e => e.stopPropagation()} style={{ maxWidth: 500 }}>
@@ -52,7 +52,7 @@ export default function SettlementFinalize({ settlementId, onDone }) {
                   background: '#1a1a00', border: '1px solid #3a3000',
                   borderRadius: 8, fontSize: 12, color: '#d4a017', lineHeight: 1.7,
                 }}>
-                  ⚠️ <strong>Only click this after physical money has been moved.</strong><br />
+                  <strong>Only click this after physical money has been moved.</strong><br />
                   This will update each DFSP's SETTLEMENT account balance in Mojaloop to reflect the real money transfer via RTGS.
                 </div>
 
@@ -77,8 +77,8 @@ export default function SettlementFinalize({ settlementId, onDone }) {
                   <div style={{ fontWeight: 700, color: 'var(--text-secondary)', marginBottom: 6 }}>
                     What this will do:
                   </div>
-                  <div>↓ <strong>recordFundsOut</strong> → DFSPs with negative net amount (they sent money)</div>
-                  <div>↑ <strong>recordFundsIn</strong> → DFSPs with positive net amount (they received money)</div>
+                  <div> <strong>recordFundsOut</strong>  DFSPs with negative net amount (they sent money)</div>
+                  <div><strong>recordFundsIn</strong>  DFSPs with positive net amount (they received money)</div>
                   <div style={{ marginTop: 6, color: 'var(--text-muted)' }}>
                     SETTLEMENT account balances will be updated in Mojaloop Central Ledger.
                   </div>
@@ -105,19 +105,19 @@ export default function SettlementFinalize({ settlementId, onDone }) {
                     disabled={loading}
                     style={{ background: 'var(--green)', border: 'none' }}
                   >
-                    {loading ? '⏳ Processing...' : '✓ Confirm & Update Mojaloop'}
+                    {loading ? ' Processing...' : ' Confirm & Update Mojaloop'}
                   </button>
                 </div>
               </>
             ) : (
               <>
-                {/* ── Result view ── */}
+                {/*  Result view */}
                 <div style={{
                   padding: '16px 0 12px',
                   display: 'flex', alignItems: 'center', gap: 10,
                   borderBottom: '1px solid var(--border)', marginBottom: 16,
                 }}>
-                  <span style={{ fontSize: 20 }}>{result.success ? '✅' : '⚠️'}</span>
+                  <span style={{ fontSize: 20 }}>{result.success ? 'Success' : 'Failed'}</span>
                   <div>
                     <div style={{ fontWeight: 700, fontSize: 14 }}>
                       {result.success ? 'Finalization Complete' : 'Partial Finalization'}
@@ -178,7 +178,7 @@ export default function SettlementFinalize({ settlementId, onDone }) {
                           m.status === 'ok'      ? 'COMMITTED' :
                           m.status === 'failed'  ? 'FAILED'    : 'TIMEOUT'
                         }`} style={{ marginLeft: 8 }}>
-                          {m.status === 'ok' ? '✅' : m.status === 'failed' ? '❌' : '—'} {m.status}
+                          {m.status === 'ok' ? 'Success' : m.status === 'failed' ? 'Failed' : '—'} {m.status}
                         </span>
                       </div>
                     </div>

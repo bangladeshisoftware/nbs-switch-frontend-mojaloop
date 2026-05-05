@@ -163,7 +163,7 @@ export default function PISPManagement() {
         </div>
       </div>
 
-      {/* ══ Create / Edit Modal ══ */}
+      {/* Create / Edit Modal  */}
       {modal && (
         <div className="modal-overlay" onClick={() => setModal(null)}>
           <div className="modal" onClick={e => e.stopPropagation()} style={{ maxWidth: 500 }}>
@@ -173,9 +173,9 @@ export default function PISPManagement() {
 
             <form onSubmit={handleSave} style={{ display: 'flex', flexDirection: 'column', gap: 12 }}>
 
-              {/* ── PISP Info ── */}
+              {/*  PISP Info  */}
               <div style={{ fontSize: 10, color: 'var(--accent)', fontFamily: 'var(--font-mono)', letterSpacing: 1, marginBottom: -4 }}>
-                ⬡ PISP INFORMATION
+                 PISP INFORMATION
               </div>
 
               {modal === 'create' && (
@@ -223,29 +223,29 @@ export default function PISPManagement() {
                   onChange={f('note')} placeholder="e.g. E-commerce payment initiator" />
               </div>
 
-              {/* ── What gets registered info box ── */}
+              {/* What gets registered info box */}
               {modal === 'create' && (
                 <div style={{ padding: '12px 14px', background: '#001a33', border: '1px solid #003366', borderRadius: 8 }}>
                   <div style={{ fontSize: 10, color: '#6699cc', fontFamily: 'var(--font-mono)', marginBottom: 8, letterSpacing: 1 }}>
-                    ⚡ ENDPOINTS THAT WILL BE REGISTERED
+                    ENDPOINTS THAT WILL BE REGISTERED
                   </div>
                   <div style={{ fontSize: 11, color: '#6699cc', lineHeight: 1.8 }}>
-                    ✅ Parties GET/PUT — ALS lookup callbacks<br />
-                    ✅ Participants PUT — ALS registration<br />
-                    ✅ Consent POST/PUT — consent lifecycle<br />
-                    ✅ ConsentRequests POST/PUT — consent requests<br />
-                    ✅ ThirdPartyRequests — transaction initiation<br />
-                    ✅ Authorizations — user approval callbacks<br />
+                     Parties GET/PUT — ALS lookup callbacks<br />
+                    Participants PUT — ALS registration<br />
+                   Consent POST/PUT — consent lifecycle<br />
+                    ConsentRequests POST/PUT — consent requests<br />
+                    ThirdPartyRequests — transaction initiation<br />
+                    Authorizations — user approval callbacks<br />
                     <span style={{ color: '#445566', marginTop: 4, display: 'block' }}>
-                      ❌ Quotes — not needed (PISP never quotes)<br />
-                      ❌ Transfers — not needed (PISP never transfers)<br />
-                      ❌ Net Debit Cap — not needed (PISP holds no funds)
+                     Quotes — not needed (PISP never quotes)<br />
+                     Transfers — not needed (PISP never transfers)<br />
+                     Net Debit Cap — not needed (PISP holds no funds)
                     </span>
                   </div>
                 </div>
               )}
 
-              {/* ── Status (edit only) ── */}
+              {/* Status (edit only) */}
               {modal !== 'create' && (
                 <div className="input-group">
                   <label className="input-label">Status</label>
@@ -271,7 +271,7 @@ export default function PISPManagement() {
         </div>
       )}
 
-      {/* ══ Success Result Popup ══ */}
+      {/*  Success Result Popup  */}
       {result && (
         <div className="modal-overlay" onClick={() => setResult(null)}>
           <div className="modal" onClick={e => e.stopPropagation()} style={{ maxWidth: 440 }}>
@@ -301,11 +301,11 @@ export default function PISPManagement() {
                       fontFamily: 'var(--font-mono)', fontSize: 10, fontWeight: 700,
                     }}>
                       {!val ? '—' :
-                       val?.error ? '❌ failed' :
-                       val === 'ok' ? '✅ done' :
-                       val?.skipped ? '⚠️ skipped' :
-                       Array.isArray(val) ? `✅ ${val.filter(v => v.status === 'ok').length}/${val.length}` :
-                       '✅ done'}
+                       val?.error ? 'failed' :
+                       val === 'ok' ? 'done' :
+                       val?.skipped ? 'skipped' :
+                       Array.isArray(val) ? ` ${val.filter(v => v.status === 'ok').length}/${val.length}` :
+                       ' done'}
                     </span>
                   </div>
                 ))}
@@ -315,7 +315,7 @@ export default function PISPManagement() {
               {result.steps?.cl_endpoints && Array.isArray(result.steps.cl_endpoints) && (
                 <div style={{ background: '#001a33', border: '1px solid #003366', borderRadius: 8, padding: '12px 14px' }}>
                   <div style={{ fontSize: 10, color: '#6699cc', marginBottom: 8, letterSpacing: 1 }}>
-                    ⚡ ENDPOINTS REGISTERED
+                     ENDPOINTS REGISTERED
                   </div>
                   <div style={{ fontSize: 11, color: '#6699cc' }}>
                     {result.steps.cl_endpoints.filter(e => e.status === 'ok').length} / {result.steps.cl_endpoints.length} endpoints registered successfully
@@ -324,7 +324,7 @@ export default function PISPManagement() {
                     <div style={{ marginTop: 8 }}>
                       {result.steps.cl_endpoints.filter(e => e.status === 'failed').map(e => (
                         <div key={e.type} style={{ fontSize: 10, color: 'var(--red)', fontFamily: 'var(--font-mono)' }}>
-                          ❌ {e.type}
+                          {e.type}
                         </div>
                       ))}
                     </div>

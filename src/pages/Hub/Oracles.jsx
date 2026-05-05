@@ -76,7 +76,7 @@ export default function Oracles() {
         <div className="header-actions">
           <button className="btn btn-secondary" onClick={load}>↺ Refresh</button>
           <button className="btn btn-primary" onClick={() => { setModal(true); setError(null); setForm(EMPTY_FORM); }}>
-            + Add Oracle
+            Add Oracle
           </button>
         </div>
       </div>
@@ -134,7 +134,7 @@ export default function Oracles() {
                       disabled={deleting === o.oracleId}
                       onClick={() => handleDelete(o.oracleId)}
                     >
-                      {deleting === o.oracleId ? '⏳' : '✕ Delete'}
+                      {deleting === o.oracleId ? 'Deleting...' : ' Delete'}
                     </button>
                   </td>
                 </tr>
@@ -144,7 +144,7 @@ export default function Oracles() {
         </div>
       </div>
 
-      {/* ── Create Modal ── */}
+      {/* Create Modal */}
       {modal && (
         <div className="modal-overlay" onClick={() => setModal(false)}>
           <div className="modal" onClick={e => e.stopPropagation()} style={{ maxWidth: 460 }}>
@@ -152,7 +152,7 @@ export default function Oracles() {
 
             {error && (
               <div style={{ margin: '0 0 12px', padding: '10px 14px', background: 'var(--red)11', border: '1px solid var(--red)44', borderRadius: 8, fontSize: 12, color: 'var(--red)' }}>
-                ❌ {error}
+                {error}
               </div>
             )}
 
@@ -198,7 +198,7 @@ export default function Oracles() {
               <div className="modal-actions">
                 <button type="button" className="btn btn-secondary" onClick={() => setModal(false)}>Cancel</button>
                 <button type="submit" className="btn btn-primary" disabled={saving}>
-                  {saving ? '⏳ Adding...' : '+ Add Oracle'}
+                  {saving ? ' Adding...' : 'Add Oracle'}
                 </button>
               </div>
             </form>

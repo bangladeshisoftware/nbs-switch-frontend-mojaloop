@@ -92,7 +92,7 @@ textarea {
 .animate-spin {
   animation: spin 1s linear infinite;
 }
-/* ── LAYOUT ─────────────────────────────────────── */
+/* LAYOUT  */
 .app-layout {
   display: flex;
   height: 100vh;
@@ -279,7 +279,7 @@ textarea {
   color: var(--red);
 }
 
-/* ── HEADER ─────────────────────────────────────── */
+/* HEADER  */
 .page-header {
   height: fit-content;
   background: #12203a9c;
@@ -312,7 +312,7 @@ textarea {
   gap: 8px;
 }
 
-/* ── CARDS ─────────────────────────────────────── */
+/* CARDS */
 .card {
   background: var(--bg-card);
   border: 1px solid var(--border);
@@ -336,7 +336,7 @@ textarea {
   letter-spacing: 0.06em;
 }
 
-/* ── STAT CARDS ─────────────────────────────────── */
+/* STAT CARDS */
 .stat-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
@@ -421,7 +421,7 @@ textarea {
   font-family: var(--font-mono);
 }
 
-/* ── BADGE / STATUS ─────────────────────────────── */
+/* BADGE / STATUS */
 .badge {
   display: inline-flex;
   align-items: center;
@@ -524,7 +524,7 @@ textarea {
   color: var(--text-secondary);
 }
 
-/* ── TABLE ─────────────────────────────────────── */
+/* TABLE */
 .table-wrap {
   overflow-x: auto;
   border-radius: var(--radius-lg);
@@ -634,7 +634,7 @@ tbody tr:hover {
   height: 13px;
 }
 
-/* ── INPUTS ─────────────────────────────────────── */
+/* INPUTS */
 .input,
 .select {
   background: var(--bg-secondary);
@@ -670,7 +670,7 @@ tbody tr:hover {
   font-family: var(--font-mono);
 }
 
-/* ── FILTER BAR ─────────────────────────────────── */
+/* FILTER BAR */
 .filter-bar {
   display: flex;
   gap: 8px;
@@ -683,7 +683,7 @@ tbody tr:hover {
   border-radius: var(--radius-lg);
 }
 
-/* ── PAGINATION ─────────────────────────────────── */
+/* PAGINATION */
 .pagination {
   display: flex;
   align-items: center;
@@ -732,7 +732,7 @@ tbody tr:hover {
   cursor: not-allowed;
 }
 
-/* ── GRID LAYOUTS ─────────────────────────────────── */
+/* GRID LAYOUTS */
 .grid-2 {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -744,7 +744,7 @@ tbody tr:hover {
   gap: 16px;
 }
 
-/* ── TIMELINE ─────────────────────────────────────── */
+/* TIMELINE */
 .timeline {
   display: flex;
   flex-direction: column;
@@ -798,7 +798,7 @@ tbody tr:hover {
   margin-top: 2px;
 }
 
-/* ── MODAL ─────────────────────────────────────────── */
+/* MODAL */
 .modal-overlay {
   position: fixed;
   inset: 0;
@@ -836,7 +836,7 @@ tbody tr:hover {
   margin-top: 20px;
 }
 
-/* ── EMPTY STATE ─────────────────────────────────── */
+/* EMPTY STATE */
 .empty-state {
   display: flex;
   flex-direction: column;
@@ -863,7 +863,7 @@ tbody tr:hover {
   font-family: var(--font-mono);
 }
 
-/* ── LOADING ─────────────────────────────────────── */
+/* LOADING */
 .spinner {
   width: 18px;
   height: 18px;
@@ -890,7 +890,7 @@ tbody tr:hover {
   font-size: 12px;
 }
 
-/* ── LOGIN PAGE ─────────────────────────────────── */
+/* LOGIN PAGE */
 .login-page {
   min-height: 100vh;
   display: flex;
@@ -984,7 +984,7 @@ tbody tr:hover {
   font-family: var(--font-mono);
 }
 
-/* ── MISC ─────────────────────────────────────────── */
+/* MISC */
 .mono {
   font-family: var(--font-mono);
 }
@@ -1028,7 +1028,7 @@ tbody tr:hover {
   width: 100%;
 }
 
-/* ── DETAIL PAGE ─────────────────────────────────── */
+/* DETAIL PAGE */
 .detail-row {
   display: flex;
   justify-content: space-between;

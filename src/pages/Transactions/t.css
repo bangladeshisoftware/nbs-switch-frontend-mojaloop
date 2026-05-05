@@ -1,16 +1,9 @@
-/* =================================
-   HEADER ACTIONS
-================================= */
 
 .header-actions {
   display: flex;
   align-items: center;
   gap: 10px;
 }
-
-/* =================================
-   FILTER BAR
-================================= */
 
 .filter-bar {
   display: flex;
@@ -37,10 +30,6 @@
   color: var(--text-muted);
 }
 
-/* =================================
-   INPUTS & SELECT
-================================= */
-
 .input,
 .select {
   height: 34px;
@@ -61,10 +50,6 @@
   box-shadow: 0 0 0 3px rgba(0, 212, 255, 0.15);
 }
 
-/* =================================
-   TABLE WRAPPER
-================================= */
-
 .table-wrap {
   background: var(--bg-card);
   border: 1px solid var(--border);
@@ -72,10 +57,6 @@
   overflow: hidden;
   overflow-y: scroll;
 }
-
-/* =================================
-   TABLE STYLING
-================================= */
 
 table {
   width: 100%;
@@ -114,8 +95,6 @@ tbody tr:hover {
   background: rgba(0, 212, 255, 0.05);
 }
 
-/* Accent & Primary Cells */
-
 .td-accent {
   color: var(--accent);
   font-weight: 600;
@@ -128,10 +107,6 @@ tbody tr:hover {
 .mono {
   font-family: var(--font-mono);
 }
-
-/* =================================
-   LOADING / EMPTY
-================================= */
 
 .loading-screen {
   padding: 30px;
@@ -147,10 +122,6 @@ tbody tr:hover {
   color: var(--text-primary);
   margin-bottom: 6px;
 }
-
-/* =================================
-   PAGINATION
-================================= */
 
 .pagination {
   display: flex;

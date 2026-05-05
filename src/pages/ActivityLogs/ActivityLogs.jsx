@@ -114,7 +114,7 @@ export default function ActivityLogs() {
             fetchLogs(page);
           }}
         >
-          ↺ Refresh
+         Refresh
         </button>
       </div>
 

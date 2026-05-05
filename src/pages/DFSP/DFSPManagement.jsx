@@ -30,7 +30,7 @@ const EMPTY_FORM = {
 export default function DFSPManagement() {
   const [dfsps, setDfsps] = useState([]);
   const [loading, setLoading] = useState(true);
-  const [modal, setModal] = useState(null); // null | 'create' | dfsp object
+  const [modal, setModal] = useState(null);
   const [form, setForm] = useState(EMPTY_FORM);
   const [saving, setSaving] = useState(false);
   const [result, setResult] = useState(null);
@@ -105,7 +105,6 @@ export default function DFSPManagement() {
     }));
   };
   const [authLoading, setAuthLoading] = useState('');
-  // a function: /auth/login-dfsp
   const handleLogin = async (dfsp_id) => {
     if (!dfsp_id) return alert('DFSP id is Required!');
     setAuthLoading(dfsp_id);
@@ -115,7 +114,7 @@ export default function DFSPManagement() {
       // redirect.
       console.log(res?.data?.token, 'res is');
       window.open(
-        `https://dfsp.mojaloop.xyz/login/${res?.data?.token}`,
+        `${process.env.REACT_APP_DFSP_URL}/login/${res?.data?.token}`,
         '_blank',
         'noopener,noreferrer',
       );
@@ -269,7 +268,7 @@ export default function DFSPManagement() {
         </div>
       </div>
 
-      {/* ── Create / Edit Modal ── */}
+      {/*  Create / Edit Modal  */}
       {modal && (
         <div className='modal-overlay' onClick={() => setModal(null)}>
           <div
@@ -287,7 +286,7 @@ export default function DFSPManagement() {
               onSubmit={handleSave}
               style={{ display: 'flex', flexDirection: 'column', gap: 12 }}
             >
-              {/* DFSP ID — only on create */}
+              {/* DFSP ID - only on create */}
               {modal === 'create' && (
                 <div className='input-group'>
                   <label className='input-label'>DFSP ID *</label>
@@ -457,7 +456,7 @@ export default function DFSPManagement() {
                       letterSpacing: 1,
                     }}
                   >
-                    ◎ DFSP PORTAL ADMIN ACCOUNT
+                     DFSP PORTAL ADMIN ACCOUNT
                   </div>
 
                   <div

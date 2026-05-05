@@ -35,7 +35,7 @@ export default function PISPOverview() {
 
   useEffect(() => { load(); }, [load]);
 
-  // ── Edit submit ──────────────────────────────────────────
+  // Edit submit
   const openEdit = () => {
     setEditForm({
       name:         pisp?.name         || '',
@@ -62,7 +62,7 @@ export default function PISPOverview() {
     }
   };
 
-  // ── Re-register endpoints ────────────────────────────────
+  //  Re-register endpoints
   const handleReRegister = async (e) => {
     e.preventDefault();
     setSaving(true);
@@ -87,7 +87,7 @@ export default function PISPOverview() {
 
   return (
     <div>
-      {/* ── Header ── */}
+      {/*  Header  */}
       <div className="page-header">
         <div style={{ display: 'flex', alignItems: 'center', gap: 12 }}>
           <button className="btn btn-secondary" style={{ padding: '4px 10px', fontSize: 11 }}
@@ -109,7 +109,7 @@ export default function PISPOverview() {
 
       <div className="page-content" style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 16 }}>
 
-        {/* ── PISP Info ── */}
+        {/*  PISP Info  */}
         <div className="card">
           <div className="card-header">
             <div className="card-title">PISP Information</div>
@@ -136,7 +136,7 @@ export default function PISPOverview() {
           </div>
         </div>
 
-        {/* ── Callback URL ── */}
+        {/*  Callback URL  */}
         <div className="card">
           <div className="card-header">
             <div className="card-title">Callback URL</div>
@@ -167,7 +167,7 @@ export default function PISPOverview() {
           </div>
         </div>
 
-        {/* ── Central Ledger Endpoints ── */}
+        {/* Central Ledger Endpoints */}
         <div className="card" style={{ gridColumn: '1 / -1' }}>
           <div className="card-header">
             <div className="card-title">Central Ledger Endpoints</div>
@@ -206,7 +206,7 @@ export default function PISPOverview() {
 
       </div>
 
-      {/* ══ Edit Modal ══ */}
+      {/*  Edit Modal  */}
       {editModal && (
         <div className="modal-overlay" onClick={() => setEditModal(false)}>
           <div className="modal" onClick={e => e.stopPropagation()} style={{ maxWidth: 460 }}>
@@ -248,7 +248,7 @@ export default function PISPOverview() {
               <div className="modal-actions">
                 <button type="button" className="btn btn-secondary" onClick={() => setEditModal(false)}>Cancel</button>
                 <button type="submit" className="btn btn-primary" disabled={saving}>
-                  {saving ? '⏳ Saving...' : '✓ Save Changes'}
+                  {saving ? 'Saving...' : '✓ Save Changes'}
                 </button>
               </div>
             </form>
@@ -256,17 +256,17 @@ export default function PISPOverview() {
         </div>
       )}
 
-      {/* ══ Re-register Endpoints Modal ══ */}
+      {/*  Re-register Endpoints Modal  */}
       {epModal && (
         <div className="modal-overlay" onClick={() => { setEpModal(false); setEpResult(null); }}>
           <div className="modal" onClick={e => e.stopPropagation()} style={{ maxWidth: 460 }}>
-            <div className="modal-title">⚡ Re-register Endpoints</div>
+            <div className="modal-title"> Re-register Endpoints</div>
             <form onSubmit={handleReRegister} style={{ display: 'flex', flexDirection: 'column', gap: 12 }}>
               <div className="input-group">
                 <label className="input-label">Callback URL</label>
                 <input className="input w-full" required value={epUrl}
                   onChange={e => setEpUrl(e.target.value)}
-                  placeholder="https://pisp-backend.mojaloop.xyz" />
+                  placeholder="https://pisp-backend.domain.com" />
               </div>
 
               {epResult && (
@@ -276,7 +276,7 @@ export default function PISPOverview() {
                     <div key={r.type} style={{ display: 'flex', justifyContent: 'space-between', padding: '3px 0', fontSize: 10 }}>
                       <span style={{ fontFamily: 'var(--font-mono)', color: 'var(--text-secondary)' }}>{r.type}</span>
                       <span style={{ color: r.status === 'ok' ? 'var(--green)' : 'var(--red)', fontWeight: 700 }}>
-                        {r.status === 'ok' ? '✅' : '❌'}
+                        {r.status === 'ok' ? 'Success' : 'Failed'}
                       </span>
                     </div>
                   ))}
@@ -286,7 +286,7 @@ export default function PISPOverview() {
               <div className="modal-actions">
                 <button type="button" className="btn btn-secondary" onClick={() => { setEpModal(false); setEpResult(null); }}>Close</button>
                 <button type="submit" className="btn btn-primary" disabled={saving}>
-                  {saving ? '⏳ Registering...' : '⚡ Register Endpoints'}
+                  {saving ? ' Registering...' : 'Register Endpoints'}
                 </button>
               </div>
             </form>

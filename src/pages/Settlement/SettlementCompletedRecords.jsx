@@ -49,7 +49,7 @@ export default function SettlementCompletedRecords() {
         </div>
         <div className='header-actions'>
           <button className='btn btn-secondary' onClick={load}>
-            ↺ Refresh
+             Refresh
           </button>
           <button className='btn btn-primary' onClick={load}>
             {' '}
@@ -59,7 +59,7 @@ export default function SettlementCompletedRecords() {
       </div>
 
       <div style={{ padding: '18px 28px' }}>
-        {/* ── Filters ── */}
+        {/*  Filters  */}
         <div
           style={{
             display: 'grid',
@@ -115,7 +115,7 @@ export default function SettlementCompletedRecords() {
           </div>
         </div>
 
-        {/* ── Summary cards by window ── */}
+        {/* Summary cards by window */}
         {windows.length > 0 && (
           <div
             style={{
@@ -207,7 +207,7 @@ export default function SettlementCompletedRecords() {
         )}
       </div>
 
-      {/* ── Full table ── */}
+      {/* Full table */}
       <div className='page-content'>
         <div className='table-wrap'>
           <table>

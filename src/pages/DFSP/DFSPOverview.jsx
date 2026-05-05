@@ -100,14 +100,20 @@ export default function DFSPOverview() {
   const handleSetLimit = async (e) => {
     e.preventDefault();
     setSaving(true);
-    if (latestLimit.value > 0) {
+    if (latestLimit?.value > 0) {
       try {
         await updateDfspLimit({ dfsp_id: dfspId, ...limitForm });
         setLimitModal(false);
         load();
         console.log({ dfsp_id: dfspId, ...limitForm });
       } catch (err) {
-        alert('Error: ' + (err.response?.data?.error || err.message));
+        console.log('error: ', err);
+        alert(
+          'Error: ' +
+            (err?.response?.data?.error ||
+              err?.message ||
+              'Something went wrong'),
+        );
       } finally {
         setSaving(false);
       }
@@ -117,7 +123,13 @@ export default function DFSPOverview() {
         setLimitModal(false);
         load();
       } catch (err) {
-        alert('Error: ' + (err.response?.data?.error || err.message));
+        console.log('error: ', err);
+        alert(
+          'Error: ' +
+            (err?.response?.data?.error ||
+              err?.message ||
+              'Something went wrong'),
+        );
       } finally {
         setSaving(false);
       }
@@ -150,7 +162,7 @@ export default function DFSPOverview() {
 
   return (
     <div>
-      {/* ── Header ── */}
+      {/* Header  */}
       <div className='page-header' style={{ padding: '13px 18px' }}>
         <div style={{ display: 'flex', alignItems: 'center', gap: 12 }}>
           <button
@@ -158,7 +170,7 @@ export default function DFSPOverview() {
             onClick={() => navigate('/dfsps')}
             style={{ padding: '6px 10px' }}
           >
-            ← Back
+             Back
           </button>
           <div>
             <div className='page-subtitle'>
@@ -171,7 +183,7 @@ export default function DFSPOverview() {
             className='btn btn-secondary'
             onClick={() => setLimitModal(true)}
           >
-            ⚙ Set Limit
+             Set Limit
           </button>
           <button
             className='btn btn-primary'
@@ -182,10 +194,10 @@ export default function DFSPOverview() {
               color: '#000',
             }}
           >
-            ＋ Deposit Funds
+            Deposit Funds
           </button>
           <button className='btn btn-secondary' onClick={load}>
-            ↺ Refresh
+             Refresh
           </button>
         </div>
       </div>
@@ -375,7 +387,7 @@ export default function DFSPOverview() {
           </div>
         </div>
 
-        {/* ── Callback URL + Stats ── */}
+        {/*  Callback URL + Stats  */}
         <div className='grid-2' style={{ marginBottom: 16 }}>
           {/* Callback URLs */}
           <div className='card'>
@@ -595,7 +607,7 @@ export default function DFSPOverview() {
           </div>
         </div>
 
-        {/* ── Limit History ── */}
+        {/*  Limit History  */}
         {limits.length > 0 && (
           <div className='card'>
             <div className='card-header'>
@@ -666,9 +678,7 @@ export default function DFSPOverview() {
         <div style={{ marginBottom: 50 }}></div>
       </div>
 
-      {/* ════════════════════════════════════════════════════
-          DEPOSIT FUNDS MODAL
-      ════════════════════════════════════════════════════ */}
+      {/* DEPOSIT FUNDS MODAL */}
       {depositModal && (
         <div className='modal-overlay' onClick={() => setDepositModal(false)}>
           <div
@@ -834,9 +844,7 @@ export default function DFSPOverview() {
         </div>
       )}
 
-      {/* ════════════════════════════════════════════════════
-          SET LIMIT MODAL
-      ════════════════════════════════════════════════════ */}
+      {/* SET LIMIT MODAL */}
       {limitModal && (
         <div className='modal-overlay' onClick={() => setLimitModal(false)}>
           <div

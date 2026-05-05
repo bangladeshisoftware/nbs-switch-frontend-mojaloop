@@ -17,7 +17,7 @@ export default function VerifyOTP() {
     setLoading(true);
     try {
       const res = await verify_otp(ref, otp);
-      console.log('res: ', res);
+      // console.log('res: ', res);
       if (res?.token) {
         navigate('/');
       }

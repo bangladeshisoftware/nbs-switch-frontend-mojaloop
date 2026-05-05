@@ -75,10 +75,10 @@ export default function Positions() {
         </div>
         <div className='header-actions'>
           <button className='btn btn-secondary' onClick={load}>
-            ↺ Refresh
+            Refresh
           </button>
           <button className='btn btn-primary' onClick={() => setModal(true)}>
-            + Set Limit
+            Set Limit
           </button>
         </div>
       </div>
@@ -99,7 +99,7 @@ export default function Positions() {
           ))}
         </div> */}
 
-        {/* ── CURRENT POSITIONS ── */}
+        {/*  CURRENT POSITIONS  */}
         {tab === 'positions' && (
           <>
             {/* Summary Cards */}
@@ -265,7 +265,7 @@ export default function Positions() {
           </>
         )}
 
-        {/* ── POSITION CHANGES ── */}
+        {/*  POSITION CHANGES  */}
         {tab === 'changes' && (
           <div className='table-wrap'>
             <table>
@@ -346,7 +346,7 @@ export default function Positions() {
           </div>
         )}
 
-        {/* ── LIMIT HISTORY ── */}
+        {/*  LIMIT HISTORY */}
         {tab === 'limits' && (
           <div className='table-wrap'>
             <table>

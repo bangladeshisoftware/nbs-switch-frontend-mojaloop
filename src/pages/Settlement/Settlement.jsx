@@ -31,10 +31,10 @@ export default function Settlement({ settlementId = 6, onDone }) {
   const handleOpenWindow = async () => {
     try {
       await openSettlementWindow();
-      alert('✅ Settlement window opened');
+      alert('Settlement window opened');
       load();
     } catch (err) {
-      alert('❌ Error: ' + (err.response?.data?.error || err.message));
+      alert('Error: ' + (err.response?.data?.error || err.message));
     }
   };
 
@@ -44,7 +44,7 @@ export default function Settlement({ settlementId = 6, onDone }) {
       await closeSettlementWindow(id);
       load();
     } catch (err) {
-      alert('❌ Error: ' + (err.response?.data?.error || err.message));
+      alert('Error: ' + (err.response?.data?.error || err.message));
     }
   };
   const [result, setResult] = useState(null);
@@ -60,7 +60,7 @@ export default function Settlement({ settlementId = 6, onDone }) {
         reason,
       });
       setResult(res.data);
-      console.log(' data::: ', res.data);
+      // console.log(' data::: ', res.data);
     } catch (err) {
       setResult({
         success: false,
@@ -322,7 +322,7 @@ export default function Settlement({ settlementId = 6, onDone }) {
                 </>
               ) : (
                 <>
-                  {/* ── Result view ── */}
+                  {/* Result view */}
                   <div
                     style={{
                       padding: '16px 0 12px',
@@ -334,7 +334,7 @@ export default function Settlement({ settlementId = 6, onDone }) {
                     }}
                   >
                     <span style={{ fontSize: 20 }}>
-                      {result.success ? '✅' : '⚠️'}
+                      {result.success ? 'Success' : 'Failed'}
                     </span>
                     <div>
                       <div style={{ fontWeight: 700, fontSize: 14 }}>
@@ -475,9 +475,9 @@ export default function Settlement({ settlementId = 6, onDone }) {
                             style={{ marginLeft: 8 }}
                           >
                             {m.status === 'ok'
-                              ? '✅'
+                              ? 'Success'
                               : m.status === 'failed'
-                                ? '❌'
+                                ? 'Failed'
                                 : '—'}{' '}
                             {m.status}
                           </span>

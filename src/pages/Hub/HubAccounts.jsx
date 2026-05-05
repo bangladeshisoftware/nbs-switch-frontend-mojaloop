@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 import api from '../../services/api';
 import { fmt } from '../../utils/format';
 
-const CURRENCIES   = ['BDT', 'USD', 'EUR', 'INR'];
+const CURRENCIES   = ['BDT', 'USD', 'EUR', 'INR', 'TZS'];
 const ACCOUNT_TYPES = [
   { value: 'HUB_MULTILATERAL_SETTLEMENT', label: 'Hub Multilateral Settlement' },
   { value: 'HUB_RECONCILIATION',          label: 'Hub Reconciliation' },
@@ -60,7 +60,7 @@ export default function HubAccounts() {
         <div className="header-actions">
           <button className="btn btn-secondary" onClick={load}>↺ Refresh</button>
           <button className="btn btn-primary" onClick={() => { setModal(true); setError(null); setForm(EMPTY_FORM); }}>
-            + Create Hub Account
+            Create Hub Account
           </button>
         </div>
       </div>
@@ -115,7 +115,7 @@ export default function HubAccounts() {
         </div>
       </div>
 
-      {/* ── Create Modal ── */}
+      {/* Create Modal  */}
       {modal && (
         <div className="modal-overlay" onClick={() => setModal(false)}>
           <div className="modal" onClick={e => e.stopPropagation()} style={{ maxWidth: 420 }}>
@@ -123,7 +123,7 @@ export default function HubAccounts() {
 
             {error && (
               <div style={{ margin: '0 0 12px', padding: '10px 14px', background: 'var(--red)11', border: '1px solid var(--red)44', borderRadius: 8, fontSize: 12, color: 'var(--red)' }}>
-                ❌ {error}
+               {error}
               </div>
             )}
 
@@ -143,13 +143,13 @@ export default function HubAccounts() {
               </div>
 
               <div style={{ padding: '10px 14px', background: 'var(--bg-hover)', borderRadius: 8, fontSize: 11, color: 'var(--text-muted)' }}>
-                ℹ️ Hub accounts are used for multilateral settlement and reconciliation between DFSPs.
+                 Hub accounts are used for multilateral settlement and reconciliation between DFSPs.
               </div>
 
               <div className="modal-actions">
                 <button type="button" className="btn btn-secondary" onClick={() => setModal(false)}>Cancel</button>
                 <button type="submit" className="btn btn-primary" disabled={saving}>
-                  {saving ? '⏳ Creating...' : '+ Create Account'}
+                  {saving ? ' Creating...' : ' Create Account'}
                 </button>
               </div>
             </form>

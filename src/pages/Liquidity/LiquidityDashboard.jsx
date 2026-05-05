@@ -26,7 +26,7 @@ export default function LiquidityDashboard() {
   const [lastUpdate, setLastUpdate] = useState(null);
   const [autoRefresh, setAutoRefresh] = useState(false);
 
-  // ── Step 1: Load DFSP list dynamically from Central Ledger ─
+  // Step 1: Load DFSP list dynamically from Central Ledger 
   const loadDfsps = useCallback(async () => {
     try {
       const res = await api.get('/positions/participants');
@@ -40,7 +40,7 @@ export default function LiquidityDashboard() {
     }
   }, []);
 
-  // ── Step 2: Load live positions for each DFSP ─────────────
+  // Step 2: Load live positions for each DFSP
   const loadPositions = useCallback(async (dfspList) => {
     if (!dfspList?.length) return;
     const results = await Promise.allSettled(
@@ -58,7 +58,7 @@ export default function LiquidityDashboard() {
     setLastUpdate(new Date());
   }, []);
 
-  // ── Full refresh ───────────────────────────────────────────
+  // Full refresh
   const load = useCallback(
     async (silent = false) => {
       if (!silent) setRefreshing(true);
@@ -83,7 +83,7 @@ export default function LiquidityDashboard() {
     return () => clearInterval(t);
   }, [autoRefresh, load]);
 
-  // ── Snapshot helpers ───────────────────────────────────────
+  // Snapshot helpers
   const takeSnapshot = () =>
     setSnapshot({ data: { ...data }, time: new Date() });
   const clearSnapshot = () => setSnapshot(null);
@@ -193,7 +193,7 @@ export default function LiquidityDashboard() {
         </div>
       ) : (
         <div className='page-content'>
-          {/* ── DFSP Cards — one per participant ── */}
+          {/* DFSP Cards — one per participant */}
           <div
             style={{
               display: 'grid',
