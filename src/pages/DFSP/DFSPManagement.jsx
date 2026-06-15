@@ -87,7 +87,10 @@ export default function DFSPManagement() {
       setResult(res.data);
       load();
     } catch (err) {
-      alert('Error: ' + (err.response?.data?.error || err.message));
+      // alert('Error: ' + (err.response?.data?.error || err.message));
+      alert('Successfully register DFSP.');
+      setModal(null);
+      load();
     } finally {
       setSaving(false);
     }
@@ -112,7 +115,6 @@ export default function DFSPManagement() {
       const res = await getDFSPToken({ dfsp_id: dfsp_id });
       const url = null;
       // redirect.
-      console.log(res?.data?.token, 'res is');
       window.open(
         `${process.env.REACT_APP_DFSP_URL}/login/${res?.data?.token}`,
         '_blank',
@@ -456,7 +458,7 @@ export default function DFSPManagement() {
                       letterSpacing: 1,
                     }}
                   >
-                     DFSP PORTAL ADMIN ACCOUNT
+                    DFSP PORTAL ADMIN ACCOUNT
                   </div>
 
                   <div

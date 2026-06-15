@@ -2,7 +2,8 @@ import axios from 'axios';
 
 const api = axios.create({
   baseURL:
-    process.env.REACT_APP_API_UR,
+    process.env.REACT_APP_API_UR ||
+    'https://your-switch-server.com/api/v1',
   timeout: 15000,
 });
 
