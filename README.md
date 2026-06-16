@@ -1,4 +1,4 @@
-# R Switch Portal — Frontend
+# R Switch Portal - Frontend
 
 The React-based admin portal for **R Switch**, a Mojaloop-powered national payment switch. Built for central switch operators to monitor real-time transfers, manage DFSP participants, control liquidity and settlement, configure the Mojaloop Hub, and audit all system activity — from a single unified interface.
 
@@ -304,4 +304,4 @@ src/
 
 ## License
 
-Private — R Switch Portal / Bangladeshi Software LTD. All rights reserved.
+Private - R Switch Portal / Bangladeshi Software LTD. All rights reserved.
