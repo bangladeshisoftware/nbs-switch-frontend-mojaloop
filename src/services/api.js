@@ -1,9 +1,15 @@
+/**************************************************************************
+ * Copyright © 2026 Bangladeshi Software Ltd. All rights reserved.
+ * Distributed under the license terms specified in this repository.
+ *
+ * ORIGINAL AUTHOR: Muhammad Nasim (Developer)
+ **************************************************************************/
+
 import axios from 'axios';
 
 const api = axios.create({
   baseURL:
-    process.env.REACT_APP_API_UR ||
-    'https://your-switch-server.com/api/v1',
+    process.env.REACT_APP_API_UR || 'https://your-switch-server.com/api/v1',
   timeout: 15000,
 });
 

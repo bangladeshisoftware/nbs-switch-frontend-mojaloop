@@ -1,3 +1,10 @@
+/**************************************************************************
+ * Copyright © 2026 Bangladeshi Software Ltd. All rights reserved.
+ * Distributed under the license terms specified in this repository.
+ *
+ * ORIGINAL AUTHOR: Muhammad Nasim (Developer)
+ **************************************************************************/
+
 import { useState, useEffect, useCallback } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import {
@@ -170,7 +177,7 @@ export default function DFSPOverview() {
             onClick={() => navigate('/dfsps')}
             style={{ padding: '6px 10px' }}
           >
-             Back
+            Back
           </button>
           <div>
             <div className='page-subtitle'>
@@ -183,7 +190,7 @@ export default function DFSPOverview() {
             className='btn btn-secondary'
             onClick={() => setLimitModal(true)}
           >
-             Set Limit
+            Set Limit
           </button>
           <button
             className='btn btn-primary'
@@ -197,7 +204,7 @@ export default function DFSPOverview() {
             Deposit Funds
           </button>
           <button className='btn btn-secondary' onClick={load}>
-             Refresh
+            Refresh
           </button>
         </div>
       </div>

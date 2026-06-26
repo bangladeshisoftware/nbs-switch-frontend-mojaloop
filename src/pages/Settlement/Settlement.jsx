@@ -1,3 +1,10 @@
+/**************************************************************************
+ * Copyright © 2026 Bangladeshi Software Ltd. All rights reserved.
+ * Distributed under the license terms specified in this repository.
+ *
+ * ORIGINAL AUTHOR: Muhammad Nasim (Developer)
+ **************************************************************************/
+
 import { useState, useEffect } from 'react';
 import api, {
   getSettlementWindows,
@@ -99,7 +106,7 @@ export default function Settlement({ settlementId = 6, onDone }) {
               {t === 'positions' ? 'Net Positions' : 'Settlement Windows'}
             </button>
           ))}
-           <button
+          <button
             className={`btn ${modal ? 'btn-primary' : 'btn-secondary'}`}
             onClick={() => {
               setModal(true);
@@ -206,9 +213,7 @@ export default function Settlement({ settlementId = 6, onDone }) {
             >
               {!result ? (
                 <>
-                  <div className='modal-title'>
-                    Confirm Physical Settlement
-                  </div>
+                  <div className='modal-title'>Confirm Physical Settlement</div>
 
                   {/* Warning */}
                   <div
@@ -276,8 +281,8 @@ export default function Settlement({ settlementId = 6, onDone }) {
                       What this will do:
                     </div>
                     <div>
-                      <strong>recordFundsOut</strong> → DFSPs with negative
-                      net amount (they sent money)
+                      <strong>recordFundsOut</strong> → DFSPs with negative net
+                      amount (they sent money)
                     </div>
                     <div>
                       <strong>recordFundsIn</strong> → DFSPs with positive net

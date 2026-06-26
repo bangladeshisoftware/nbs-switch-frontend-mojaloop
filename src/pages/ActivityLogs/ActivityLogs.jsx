@@ -1,3 +1,10 @@
+/**************************************************************************
+ * Copyright © 2026 Bangladeshi Software Ltd. All rights reserved.
+ * Distributed under the license terms specified in this repository.
+ *
+ * ORIGINAL AUTHOR: Muhammad Nasim (Developer)
+ **************************************************************************/
+
 import { useState, useEffect, useCallback } from 'react';
 import api from '../../services/api';
 
@@ -114,7 +121,7 @@ export default function ActivityLogs() {
             fetchLogs(page);
           }}
         >
-         Refresh
+          Refresh
         </button>
       </div>
 

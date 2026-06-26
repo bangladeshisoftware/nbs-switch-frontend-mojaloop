@@ -1,3 +1,10 @@
+/**************************************************************************
+ * Copyright © 2026 Bangladeshi Software Ltd. All rights reserved.
+ * Distributed under the license terms specified in this repository.
+ *
+ * ORIGINAL AUTHOR: Muhammad Nasim (Developer)
+ **************************************************************************/
+
 import { useState, useEffect } from 'react';
 import api from '../../services/api';
 import { fmt } from '../../utils/format';
@@ -49,7 +56,7 @@ export default function SettlementCompletedRecords() {
         </div>
         <div className='header-actions'>
           <button className='btn btn-secondary' onClick={load}>
-             Refresh
+            Refresh
           </button>
           <button className='btn btn-primary' onClick={load}>
             {' '}

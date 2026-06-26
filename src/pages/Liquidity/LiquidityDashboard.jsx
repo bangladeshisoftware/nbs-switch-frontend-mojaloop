@@ -1,3 +1,10 @@
+/**************************************************************************
+ * Copyright © 2026 Bangladeshi Software Ltd. All rights reserved.
+ * Distributed under the license terms specified in this repository.
+ *
+ * ORIGINAL AUTHOR: Muhammad Nasim (Developer)
+ **************************************************************************/
+
 import { useState, useEffect, useCallback } from 'react';
 import api from '../../services/api';
 
@@ -26,7 +33,7 @@ export default function LiquidityDashboard() {
   const [lastUpdate, setLastUpdate] = useState(null);
   const [autoRefresh, setAutoRefresh] = useState(false);
 
-  // Step 1: Load DFSP list dynamically from Central Ledger 
+  // Step 1: Load DFSP list dynamically from Central Ledger
   const loadDfsps = useCallback(async () => {
     try {
       const res = await api.get('/positions/participants');
