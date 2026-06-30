@@ -90,6 +90,31 @@ npm run build
 
 ---
 
+### Default Login Setup on nbs-switch-server
+
+Before using the default credentials, update the default user's email address in your database so the OTP can be delivered to a valid email.
+
+**Users Table**
+
+Replace the default email with your own email address.
+
+**Example:**
+
+| Field | Value |
+|-------|-------|
+| Email | `your-email@example.com` |
+
+After updating the email, log in using the default credentials:
+
+| Username | Password |
+|----------|----------|
+| `newuser` | `newuser` |
+
+> **Note**
+> The OTP will be sent to the email address configured in the `users` table.
+
+---
+
 ## Portal Navigation
 
 The portal is organized into five sections. All routes require a valid JWT session (OTP-verified login).
