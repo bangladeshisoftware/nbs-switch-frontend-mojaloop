@@ -58,12 +58,12 @@ export default function Login() {
           >
             RS
           </div>
-          <h1>R Switch Portal</h1>
+          <h1>NB Switch Portal</h1>
           <p>Mojaloop Hub Management</p> */}
           <NavLink to={'/'}>
             <img
               className='logo-animated-border'
-              alt='NB Logo'
+              alt='NB Switch Logo'
               style={{ width: '70%', margin: 'auto' }}
               src='/l2.png'
             />

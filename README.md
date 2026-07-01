@@ -1,6 +1,6 @@
 # NB Switch Portal - Frontend
 
-The React-based admin portal for **R Switch**, a Mojaloop-powered national payment switch. Built for central switch operators to monitor real-time transfers, manage DFSP participants, control liquidity and settlement, configure the Mojaloop Hub, and audit all system activity — from a single unified interface.
+The React-based admin portal for **NB Switch**, a Mojaloop-powered national payment switch. Built for central switch operators to monitor real-time transfers, manage DFSP participants, control liquidity and settlement, configure the Mojaloop Hub, and audit all system activity — from a single unified interface.
 
 ---
 
@@ -64,7 +64,7 @@ REACT_APP_DFSP_URL=https://your-dfsp-portal.com
 
 | Variable | Description |
 |---|---|
-| `REACT_APP_API_URL` | Base URL of the R Switch backend REST API. All portal API calls are prefixed with this. |
+| `REACT_APP_API_URL` | Base URL of the NB Switch backend REST API. All portal API calls are prefixed with this. |
 | `REACT_APP_DFSP_URL` | URL of the DFSP-facing portal. Used for cross-linking when switch operators need to navigate to a specific DFSP's portal. |
 
 > All Create React App environment variables must be prefixed with `REACT_APP_` to be accessible via `process.env`.
